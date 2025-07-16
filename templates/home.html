@@ -1,14 +1,29 @@
 {% extends 'core/base.html' %}
-<h1> Quick Bill Generator </h1>
-    <p> Generate youe bills and invoices quickly and easily. </p>
-    <banner>
-        <h2> Welcome to Quick Bill Generator </h2>
-        <p> Create, manage, and send your bills and invoices with ease.</p>
-    </banner>
-    <nav>
-            <ul>
-                <li><a href="{% url 'login' %}">Login </a></li>
-                <li><a href="{% url 'register' %}">Register</a></li>
-            </ul>
-    </nav>
+{% block content %}
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="{% url 'home' %}" class="nav-logo">QuickBill</a>
+        <ul class="nav-links">
+            {% comment %} <li><a href="{% url 'home' %}">Home</a></li> {% endcomment %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            {% comment %} <li><a href="{% url 'profile' %}">Profile</a></li> {% endcomment %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h2> Quick Bill Generator </h2>
+        <p> Generate youe bills and invoices quickly and easily. </p>
+        <banner>
+            <p> Create, manage, and send your bills and invoices with ease.</p>
+        </banner>
+        {% comment %} <nav>
+                <ul>
+                    <li><a href="{% url 'login' %}">Login </a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                </ul>
+        </nav> {% endcomment %}
+    </div>
+{% endblock %}
     
