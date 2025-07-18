@@ -1,0 +1,11 @@
+{% extends 'core/dashboard.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Dashboard</h2>
+    <p>Welcome to your dashboard!, {{user.username}}</p>
+    <p>Here you can manage your quotations and invoices.</p>
+    {% comment %} <a href="{% url 'create_quotation' %}" class="btn btn-primary">Create Quotation</a> {% endcomment %}
+    {% comment %} <a href="{% url 'create_invoice' %}" class="btn btn-secondary">Create Invoice</a> {% endcomment %}
+{% endblock %}

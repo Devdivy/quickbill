@@ -11,6 +11,7 @@ class UserCreateForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
         widget = {
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
         }
         help_texts = {
             'username': None,
