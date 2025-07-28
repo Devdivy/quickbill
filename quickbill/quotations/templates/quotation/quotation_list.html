@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1> Quotation List</h1>
+    <a href="{% url 'create_quotation' %}" class='btn btn-primary mb-3'>Create Quotation</a>
+    {% if quotations %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Quotation Id</th>
+                <th>Client</th>
+                <th>Project</th>
+                <th>Project Details</th>
+                <th>Quotation Date</th>
+                <th>Quotation Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for q in quotations %}
+            <tr>
+                <td>{{q.id}}</td>
+                <td>{{q.client_name}}</td>
+                <td>{{q.project_title}}</td>
+                <td>{{q.description|slice:"40"}}</td>  <!-- Limit to 40 characters -->
+                <td>{{q.date_created}}</td>
+                <td>{{q.amount}}</td>
+                <td>
+                    <a href="{% url 'quotation_detail' q.pk %}" class='btn btn-info btn-sm'>View</a>
+                    <a href="{% url 'update_quotation' q.pk %}" class='btn btn-warning btn-sm'>Edit</a>
+                    <a href="{% url 'delete_quotation' q.pk %}" class='btn btn-danger btn-sm'>Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p> No Quotations found. </p>
+    {% endif %}
+
+{% endblock %}
