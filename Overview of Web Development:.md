@@ -74,3 +74,42 @@ Getting Started
                 4. cmd : django-admin startproject automax              - Our Django application is composed of many smaller apps, one among is the project_name 
                 5. cmd : python manage.py runserver
                 
+        Django Project structure
+                1.app - Django Project that we create is a composition of smaller sub apps that come together to basically form a complete application.
+                - Our project have the app with the name as of the projet name.
+        
+                manage.py: A command-line utility that lets you interact with this Django project in various ways. You can read all the details about manage.py in django-admin and manage.py.
+
+                mysite/: A directory that is the actual Python package for your project. Its name is the Python package name you’ll need to use to import anything inside it (e.g. mysite.urls).
+
+                mysite/__init__.py: An empty file that tells Python that this directory should be considered a Python package. If you’re a Python beginner, read more about packages in the official Python docs.
+
+                mysite/settings.py: Settings/configuration for this Django project. Django settings will tell you all about how settings work.
+
+                mysite/urls.py: The URL declarations for this Django project; a “table of contents” of your Django-powered site. You can read more about URLs in URL dispatcher.
+
+                mysite/asgi.py:(Asynchronous server gateway inteface) : It basically allows external applications that act as web servers to basically interact with our Django application and service. An entry-point for ASGI-compatible web servers to serve your project. See How to deploy with ASGI for more details.
+
+                mysite/wsgi.py: An entry-point for WSGI-compatible web servers to serve your project. See How to deploy with WSGI for more details.
+
+
+Django Basics
+        
+        Django Apps - cmd : "python manage.py startapp main"
+                1. Migrations folder : Object Relational mapper basically creates a SQL Code from our Python Code. which then applies to our database Schema/Database Structure and confirms to the structure that our Django app expects
+                                - For every app we have, for every models that app has, the migrations for that are stored within migrations folder.
+                2. __init__ : It is the folder used to map the python package that can be imported and used
+                3. admin.py : add functionality for our application, which basically pertains to anything that we would want to add to admin panel
+                4.apps.py - file which specifically store the information for the particular app that we've created.
+                5. models.py - stores all the models that are going to pertaining to this app.Python classes which are basically represent distinct data types, distinct entities or think them as tables in a sql database or basically the schema or the structure that we basically give to our data that can then be stored in a database. In precise models.py allows us to create a python classes and each class is responsible for creating a table in our databsae which can then store information regarding whatever that model represents.
+                6. test.py - file in which we are going to place unit test on certain functionality of our app
+                7. views.py - file where we define the functionality like of the request
+
+        Working with Django Views
+                view.py
+                   from django.http import HttpResponse
+                   from django.shortcuts import render
+                    def landing_view(request):
+                        return HTTPResponse("<h1>Welcome to automax </h1>")
+                automax/urls.py
+                   
